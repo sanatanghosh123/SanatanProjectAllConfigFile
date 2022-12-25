@@ -65,7 +65,7 @@
       dest: $HOME/.kube/config
       remote_src: yes
   - name: cni install weave
-    shell: kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+    shell: kubectl apply -f "https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml"
   - name: generate kube token
     shell: kubeadm token create --print-join-command 
     register: kubetoken
