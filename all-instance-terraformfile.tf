@@ -73,17 +73,17 @@ egress {
  }
 }
 
-
+/*
 resource "aws_eip_association" "eip_assoc" {
   instance_id   = aws_instance.ansible.id
-  allocation_id = "eipalloc-02e7a0ec93180e54c"
+  allocation_id = ""
 }
-/*
+*/
 resource "aws_eip_association" "eip_assoc" {
   instance_id   = aws_instance.jenkins.id
   allocation_id = ""
 }
-
+/*
 resource "aws_eip_association" "eip_assoc" {
   instance_id   = aws_instance.k8s-master.id
   allocation_id = ""
@@ -119,7 +119,7 @@ resource "aws_instance" "jenkins" {
 /*
 resource "aws_instance" "stagging" {
   ami           = "ami-0568773882d492fc8"
-  instance_type = "t2.xlarge"
+  instance_type = "t2.large"
   associate_public_ip_address= true
   #availability_zone ="us-east-2b"
   key_name = "winkey" 
@@ -186,7 +186,7 @@ resource "aws_instance" "k8s-master" {
 
 resource "aws_instance" "workernode1" {
   ami           = "ami-0568773882d492fc8"
-  instance_type = "t2.micro"
+  instance_type = "t2.large"
   associate_public_ip_address= true
   #availability_zone ="us-east-2b"
   private_ip = "10.0.1.53"
@@ -208,7 +208,7 @@ resource "aws_instance" "workernode1" {
 
 resource "aws_instance" "workernode2" {
   ami           = "ami-0568773882d492fc8"
-  instance_type = "t2.micro"
+  instance_type = "t2.large"
   associate_public_ip_address= true
   #availability_zone ="us-east-2b"
   private_ip = "10.0.1.54"
